@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+:root { color-scheme: dark; }
+
+.container-base { @apply max-w-7xl mx-auto px-4; }
+.card { @apply bg-onyx/95 border border-iron rounded-2xl shadow-glass; }
+.card-hover { @apply transition hover:shadow-glow hover:border-white/10; }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-medium transition; }
+.btn-primary { @apply bg-ash text-black hover:shadow-glow; }
+.btn-muted { @apply bg-white/10 text-ash hover:bg-white/15; }
+.input { @apply w-full bg-onyx border border-iron rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-ash; }
+.label { @apply text-sm text-smoke; }
+
+/* Fog + bubbles */
+.scene { position:relative; overflow:hidden; }
+.scene:before, .scene:after{
+  content:""; position:absolute; inset:-40%; pointer-events:none;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.06), transparent 60%);
+  filter: blur(60px);
+  animation: drift 36s linear infinite;
+}
+.scene:after{ animation-direction: reverse; opacity:.6; }
+@keyframes drift { from { transform: translateX(-8%) translateY(-6%) } to { transform: translateX(8%) translateY(6%) } }
+
+.bubbles{ pointer-events:none; position:absolute; inset:0; }
+.bubble{ position:absolute; bottom:-80px; width:10px; height:10px; background:rgba(255,255,255,.06); border-radius:9999px; animation: rise 22s linear infinite; }
+.bubble::after{ content:""; position:absolute; inset:0; border-radius:inherit; box-shadow: 0 0 16px rgba(155,132,255,.28); }
+@keyframes rise { from{ transform: translateY(0)} to{ transform: translateY(-120vh)} }
+
+/* Title glitch */
+.glitch { position:relative; }
+.glitch:after, .glitch:before{
+  content: attr(data-text); position:absolute; left:0; top:0; opacity:.15;
+}
+.glitch:before{ transform: translate(2px, -2px); color: #9b84ff;}
+.glitch:after{ transform: translate(-2px, 2px); color: #d14c5a; }
+
+/* Watermark */
+.watermark{ pointer-events:none; position:absolute; inset:0; display:grid; place-items:center; font-weight:800; font-size:7rem; opacity:.03; letter-spacing:.02em; }
