@@ -1,11 +1,154 @@
 export const artworks = [
-  { id:'bat-moon', title:'Wings Over the Moon', artist:'Unknown', mood:['Haunted','Mystic'], price:'—', badge:'Nocturne', image:'./images/bat_moon.jpg', lore:'A silhouette drifts across a pale moon, older than memory.' },
-  { id:'vampire-lady', title:'The Chalice', artist:'Unknown', mood:['Forbidden'], price:'—', badge:'Ritual', image:'./images/vampire_lady.jpg', lore:'She toasts to the end of light with a silvered grin.' },
-  { id:'fangs', title:'Hush of Teeth', artist:'Unknown', mood:['Forbidden','Melancholy'], price:'—', badge:'Whisper', image:'./images/fangs.jpg', lore:'Between breath and bite, a vow unspoken.' },
-  { id:'manor', title:'The Manor Wakes', artist:'Unknown', mood:['Haunted'], price:'—', badge:'Haunt', image:'./images/manor.jpg', lore:'Windows watch. Floors remember. Keys refuse to rust.' },
-  { id:'lane-house', title:'A House Beyond Fog', artist:'Unknown', mood:['Melancholy'], price:'—', badge:'Dawn', image:'./images/lane_house.jpg', lore:'The path bends like a kept secret.' },
-  { id:'coffin', title:'Wooden Sleep', artist:'Unknown', mood:['Forbidden','Melancholy'], price:'—', badge:'Grave', image:'./images/coffin.jpg', lore:'A rose learns patience in the quiet soil.' },
-  { id:'knight-lady', title:'The Vigil', artist:'Unknown', mood:['Mystic'], price:'—', badge:'Legend', image:'./images/knight_lady.jpg', lore:'Armor cool, grass warm; they wait for thunder.' },
-  { id:'skeleton-kiss', title:'Final Vow', artist:'Unknown', mood:['Forbidden','Melancholy'], price:'—', badge:'Bond', image:'./images/skeleton_kiss.jpg', lore:'The veil yields, love does not.' },
-  { id:'cathedral-moon', title:'Cathedral of Night', artist:'Unknown', mood:['Mystic','Haunted'], price:'—', badge:'Omen', image:'./images/cathedral_moon.jpg', lore:'Stone hymns rise to a round judge.' },
+  // ⭐ UPDATED WITH YOUR NEW IMAGE URL
+  {
+    id: 1,
+    title: "Mona Lisa",
+    artist: "Leonardo da Vinci",
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzxSpLrVU46qJPW_3nUQX6XEVghJnNmaAmDI3mXtC_a0TLhh9tTzUaYYPgxJ-Aid2pQ25tQcmjwdYMHlznl6WmTZHPMYlAsH9cVePB6GGIFxtbldn4s_MLGeNpxC-ZF9JK-r6rPzhISXI/s1600/Mona_Lisa.jpg",
+    badge: "Renaissance",
+    mood: ["Portraits"],
+    price: "$860M",
+    lore: "A masterpiece famous for its enigmatic expression."
+  },
+
+  // ⭐ UPDATED
+  {
+    id: 2,
+    title: "Starry Night",
+    artist: "Vincent van Gogh",
+    image:
+      "https://c8.alamy.com/comp/2NR9WMY/the-starry-night-vincent-van-gogh-2NR9WMY.jpg",
+    badge: "Post-Impressionism",
+    mood: ["Landscapes"],
+    price: "$120M",
+    lore: "A swirling depiction of the night sky painted in Saint-Rémy."
+  },
+
+  // ⭐ UPDATED
+  {
+    id: 3,
+    title: "Girl With a Pearl Earring",
+    artist: "Johannes Vermeer",
+    image:
+      "https://museum.royaldelft.com/wp-content/uploads/2024/01/0670_repro_2-e1706639411534.jpg",
+    badge: "Dutch Golden Age",
+    mood: ["Portraits"],
+    price: "$75M",
+    lore: "Often described as the 'Mona Lisa of the North'."
+  },
+
+  // ⭐ UPDATED
+  {
+    id: 4,
+    title: "The Scream",
+    artist: "Edvard Munch",
+    image:
+      "https://i.guim.co.uk/img/media/8a840f693b91fe67d42555b24c6334e9298f4680/0_1476_2429_1456/master/2429.jpg?width=1300&dpr=2&s=none&crop=none",
+    badge: "Expressionism",
+    mood: ["Abstract"],
+    price: "$120M",
+    lore: "A haunting depiction of human anxiety and emotion."
+  },
+
+  // ⭐ UPDATED
+  {
+    id: 5,
+    title: "The Persistence of Memory",
+    artist: "Salvador Dalí",
+    image:
+      "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg",
+    badge: "Surrealism",
+    mood: ["Abstract"],
+    price: "$90M",
+    lore: "Dalí's iconic melting clocks challenge our idea of time."
+  },
+
+  // ⭐ ALREADY UPDATED EARLIER
+  {
+    id: 6,
+    title: "Water Lilies",
+    artist: "Claude Monet",
+    image:
+      "https://www.artic.edu/iiif/2/3c27b499-af56-f0d5-93b5-a7f2f1ad5813/full/1686,/0/default.jpg",
+    badge: "Impressionism",
+    mood: ["Landscapes"],
+    price: "$50M",
+    lore: "Monet's serene exploration of water and reflection."
+  },
+
+  // ⭐ ALREADY UPDATED EARLIER
+  {
+    id: 7,
+    title: "The Birth of Venus",
+    artist: "Sandro Botticelli",
+    image:
+      "https://www.imosaicart.com/cdn/shop/files/MAR003_TheBirthOfVenusMosaicByBotticelli-RomanMosaicReproduction.jpg?v=1739035488",
+    badge: "Renaissance",
+    mood: ["Portraits"],
+    price: "$200M",
+    lore: "Venus emerging from the sea, symbolizing divine beauty."
+  },
+
+  // ⭐ ALREADY UPDATED EARLIER
+  {
+    id: 8,
+    title: "The Creation of Adam",
+    artist: "Michelangelo",
+    image: "https://m.media-amazon.com/images/I/71PpfiFU4yL._SX679_.jpg",
+    badge: "High Renaissance",
+    mood: ["Classic"],
+    price: "$400M",
+    lore: "The iconic Sistine Chapel fresco representing divine creation."
+  },
+
+  // ⭐ ALREADY UPDATED EARLIER
+  {
+    id: 9,
+    title: "The Great Wave off Kanagawa",
+    artist: "Hokusai",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/960px-Tsunami_by_hokusai_19th_century.jpg",
+    badge: "Ukiyo-e",
+    mood: ["Landscapes"],
+    price: "$3M",
+    lore: "One of the most recognizable artworks in Japanese culture."
+  },
+
+  // ⭐ UPDATED WITH YOUR NEW URL
+  {
+    id: 10,
+    title: "American Gothic",
+    artist: "Grant Wood",
+    image:
+      "https://v9q2n5w7.delivery.rocketcdn.me/wp-content/uploads/2021/04/american-gothic-grant-wood-cadre-1-916x1024.jpg",
+    badge: "Regionalism",
+    mood: ["Portraits"],
+    price: "$6M",
+    lore: "An iconic portrayal of rural American life."
+  },
+
+  // ⭐ UPDATED (you gave a new high-quality image)
+  {
+    id: 11,
+    title: "The Kiss",
+    artist: "Gustav Klimt",
+    image: "https://m.media-amazon.com/images/I/91ZpEExUe2L._SY879_.jpg",
+    badge: "Symbolism",
+    mood: ["Modern", "Portraits"],
+    price: "$150M",
+    lore: "A golden masterpiece representing passion and intimacy."
+  },
+
+  // ⭐ UPDATED WITH NEW URL
+  {
+    id: 12,
+    title: "Guernica",
+    artist: "Pablo Picasso",
+    image: "https://smarthistory.org/wp-content/uploads/2015/08/PicassoGuernica-1536x686.jpg",
+    badge: "Cubism",
+    mood: ["Abstract"],
+    price: "$200M",
+    lore: "A powerful protest against the horrors of war."
+  }
 ];

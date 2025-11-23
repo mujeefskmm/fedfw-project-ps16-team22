@@ -14,7 +14,43 @@ html, body, #root { height: 100%; }
 .input { @apply w-full bg-onyx border border-iron rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-ash; }
 .label { @apply text-sm text-smoke; }
 
-/* Fog + bubbles */
+/* ---------------------------------------- */
+/* 🌌 GLOBAL STARFIELD BACKGROUND (NEW)      */
+/* ---------------------------------------- */
+
+.background-stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #121218 0%, #09090d 100%);
+}
+
+.star {
+  position: absolute;
+  background: white;
+  width: 2px;
+  height: 2px;
+  opacity: 0.25;
+  border-radius: 9999px;
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.4);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0.4;
+  }
+}
+
+/* ---------------------------------------- */
+/* Fog + bubbles (INSIDE card backgrounds)  */
+/* ---------------------------------------- */
+
 .scene { position:relative; overflow:hidden; }
 .scene:before, .scene:after{
   content:""; position:absolute; inset:-40%; pointer-events:none;
@@ -23,20 +59,55 @@ html, body, #root { height: 100%; }
   animation: drift 36s linear infinite;
 }
 .scene:after{ animation-direction: reverse; opacity:.6; }
-@keyframes drift { from { transform: translateX(-8%) translateY(-6%) } to { transform: translateX(8%) translateY(6%) } }
+
+@keyframes drift {
+  from { transform: translateX(-8%) translateY(-6%) }
+  to   { transform: translateX(8%) translateY(6%) }
+}
 
 .bubbles{ pointer-events:none; position:absolute; inset:0; }
-.bubble{ position:absolute; bottom:-80px; width:10px; height:10px; background:rgba(255,255,255,.06); border-radius:9999px; animation: rise 22s linear infinite; }
-.bubble::after{ content:""; position:absolute; inset:0; border-radius:inherit; box-shadow: 0 0 16px rgba(155,132,255,.28); }
-@keyframes rise { from{ transform: translateY(0)} to{ transform: translateY(-120vh)} }
+.bubble{
+  position:absolute; bottom:-80px;
+  width:10px; height:10px;
+  background:rgba(255,255,255,.06);
+  border-radius:9999px;
+  animation: rise 22s linear infinite;
+}
+.bubble::after{
+  content:"";
+  position:absolute;
+  inset:0; border-radius:inherit;
+  box-shadow: 0 0 16px rgba(155,132,255,.28);
+}
 
-/* Title glitch */
+@keyframes rise {
+  from{ transform: translateY(0) }
+  to{ transform: translateY(-120vh) }
+}
+
+/* ---------------------------------------- */
+/* Title Glitch Effect                       */
+/* ---------------------------------------- */
+
 .glitch { position:relative; }
 .glitch:after, .glitch:before{
-  content: attr(data-text); position:absolute; left:0; top:0; opacity:.15;
+  content: attr(data-text);
+  position:absolute; left:0; top:0;
+  opacity:.15;
 }
-.glitch:before{ transform: translate(2px, -2px); color: #9b84ff;}
+.glitch:before{ transform: translate(2px, -2px); color: #9b84ff; }
 .glitch:after{ transform: translate(-2px, 2px); color: #d14c5a; }
 
-/* Watermark */
-.watermark{ pointer-events:none; position:absolute; inset:0; display:grid; place-items:center; font-weight:800; font-size:7rem; opacity:.03; letter-spacing:.02em; }
+/* ---------------------------------------- */
+/* Watermark behind cards                    */
+/* ---------------------------------------- */
+
+.watermark{
+  pointer-events:none;
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-weight:800;
+  font-size:7rem;
+  opacity:.03;
+  letter-spacing:.02em;
+}

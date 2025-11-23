@@ -1,13 +1,17 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App.jsx';
-import './styles/index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+import App from "./App.jsx";
+import { store } from "./store/store.js";
+import "./styles/index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  // ❌ REMOVE StrictMode — causes double render + blank screen
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </Provider>
 );
