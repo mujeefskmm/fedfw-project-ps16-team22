@@ -61,6 +61,12 @@ export default function Navbar() {
               Dashboard
             </NavLink>
           )}
+          {/* 🔹 Admin link only for Admin role */}
+          {user?.role === "Admin" && (
+            <NavLink to="/admin" className={link}>
+              Admin
+            </NavLink>
+          )}
         </nav>
         <div className="flex items-center gap-2">
           <button

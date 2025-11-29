@@ -6,15 +6,34 @@ import { signup, clearError } from "../store/authSlice.js";
 
 export default function Signup() {
   const [name, setName] = useState("");
+  const [role, setRole] = useState("Visitor");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("Visitor");
+  const [localError, setLocalError] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, error } = useSelector((state) => state.auth);
+  const { user, error } = useSelector((s) => s.auth);
 
   const handle = (e) => {
     e.preventDefault();
+
+    if (!name || !email || !password) {
+      setLocalError("All fields are required.");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      setLocalError("Email format is invalid.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setLocalError("Password must be at least 6 characters.");
+      return;
+    }
+
+    setLocalError("");
     dispatch(signup({ name, email, password, role }));
   };
 
@@ -22,11 +41,12 @@ export default function Signup() {
     if (user) navigate("/gallery");
   }, [user, navigate]);
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       dispatch(clearError());
-    };
-  }, [dispatch]);
+    },
+    [dispatch]
+  );
 
   return (
     <Background>
@@ -35,8 +55,8 @@ export default function Signup() {
           Create your gallery account
         </h1>
         <p className="text-sm text-smoke mb-4">
-          Join as a visitor, artist, curator or collector and start building
-          your own curated lists of artworks.
+          Join as a visitor, artist, curator, collector or admin and build your
+          own curated lists of artworks.
         </p>
         <form onSubmit={handle} className="space-y-3">
           <div>
@@ -45,7 +65,6 @@ export default function Signup() {
               className="input"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
             />
           </div>
           <div>
@@ -54,7 +73,6 @@ export default function Signup() {
               className="input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
           </div>
           <div>
@@ -64,7 +82,6 @@ export default function Signup() {
               className="input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
             />
           </div>
           <div>
@@ -78,9 +95,12 @@ export default function Signup() {
               <option>Artist</option>
               <option>Curator</option>
               <option>Collector</option>
+              <option>Admin</option> {/* 🔹 NEW */}
             </select>
           </div>
-          {error && <p className="text-sm text-red-400">{error}</p>}
+          {(localError || error) && (
+            <p className="text-sm text-red-400">{localError || error}</p>
+          )}
           <button className="btn btn-primary w-full">Create Account</button>
         </form>
         <p className="text-sm text-smoke mt-3">

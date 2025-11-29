@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Mona Lisa",
+    "artist": "Leonardo da Vinci",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzxSpLrVU46qJPW_3nUQX6XEVghJnNmaAmDI3mXtC_a0TLhh9tTzUaYYPgxJ-Aid2pQ25tQcmjwdYMHlznl6WmTZHPMYlAsH9cVePB6GGIFxtbldn4s_MLGeNpxC-ZF9JK-r6rPzhISXI/s1600/Mona_Lisa.jpg",
+    "badge": "Renaissance",
+    "mood": ["Portraits", "Classic"],
+    "price": "$860M",
+    "lore": "A timeless masterpiece famous for its enigmatic expression."
+  },
+  {
+    "id": 2,
+    "title": "Starry Night",
+    "artist": "Vincent van Gogh",
+    "image": "https://c8.alamy.com/comp/2NR9WMY/the-starry-night-vincent-van-gogh-2NR9WMY.jpg",
+    "badge": "Post-Impressionism",
+    "mood": ["Landscapes"],
+    "price": "$120M",
+    "lore": "The swirling night sky painted during van Gogh's stay in Saint-Rémy."
+  },
+  {
+    "id": 3,
+    "title": "Girl With a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "image": "https://museum.royaldelft.com/wp-content/uploads/2024/01/0670_repro_2-e1706639411534.jpg",
+    "badge": "Dutch Golden Age",
+    "mood": ["Portraits"],
+    "price": "$75M",
+    "lore": "Sometimes called the ‘Mona Lisa of the North’, capturing a quiet glance."
+  },
+  {
+    "id": 4,
+    "title": "The Scream",
+    "artist": "Edvard Munch",
+    "image": "https://i.guim.co.uk/img/media/8a840f693b91fe67d42555b24c6334e9298f4680/0_1476_2429_1456/master/2429.jpg?width=1300&dpr=2&s=none&crop=none",
+    "badge": "Expressionism",
+    "mood": ["Abstract"],
+    "price": "$120M",
+    "lore": "A powerful depiction of raw human emotion and existential dread."
+  },
+  {
+    "id": 5,
+    "title": "The Persistence of Memory",
+    "artist": "Salvador Dalí",
+    "image": "https://upload.wikimedia.org/wikipedia/en/d/dd/The_Persistence_of_Memory.jpg",
+    "badge": "Surrealism",
+    "mood": ["Abstract", "Modern"],
+    "price": "$90M",
+    "lore": "Dalí’s melting clocks challenge our sense of time and reality."
+  },
+  {
+    "id": 6,
+    "title": "Water Lilies",
+    "artist": "Claude Monet",
+    "image": "https://www.artic.edu/iiif/2/3c27b499-af56-f0d5-93b5-a7f2f1ad5813/full/1686,/0/default.jpg",
+    "badge": "Impressionism",
+    "mood": ["Landscapes"],
+    "price": "$50M",
+    "lore": "Monet’s serene studies of water, reflection and light."
+  },
+  {
+    "id": 7,
+    "title": "The Birth of Venus",
+    "artist": "Sandro Botticelli",
+    "image": "https://www.imosaicart.com/cdn/shop/files/MAR003_TheBirthOfVenusMosaicByBotticelli-RomanMosaicReproduction.jpg?v=1739035488",
+    "badge": "Renaissance",
+    "mood": ["Portraits", "Classic"],
+    "price": "$200M",
+    "lore": "Venus emerging from the sea, symbolising divine beauty and mythology."
+  },
+  {
+    "id": 8,
+    "title": "The Creation of Adam",
+    "artist": "Michelangelo",
+    "image": "https://m.media-amazon.com/images/I/71PpfiFU4yL._SX679_.jpg",
+    "badge": "High Renaissance",
+    "mood": ["Classic"],
+    "price": "$400M",
+    "lore": "The iconic Sistine Chapel fresco representing divine connection."
+  },
+  {
+    "id": 9,
+    "title": "The Great Wave off Kanagawa",
+    "artist": "Hokusai",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/960px-Tsunami_by_hokusai_19th_century.jpg",
+    "badge": "Ukiyo-e",
+    "mood": ["Landscapes"],
+    "price": "$3M",
+    "lore": "One of the most recognisable Japanese prints ever created."
+  },
+  {
+    "id": 10,
+    "title": "American Gothic",
+    "artist": "Grant Wood",
+    "image": "https://v9q2n5w7.delivery.rocketcdn.me/wp-content/uploads/2021/04/american-gothic-grant-wood-cadre-1-916x1024.jpg",
+    "badge": "Regionalism",
+    "mood": ["Portraits"],
+    "price": "$6M",
+    "lore": "An iconic portrayal of rural American life and resilience."
+  },
+  {
+    "id": 11,
+    "title": "The Kiss",
+    "artist": "Gustav Klimt",
+    "image": "https://m.media-amazon.com/images/I/91ZpEExUe2L._SY879_.jpg",
+    "badge": "Symbolism",
+    "mood": ["Modern", "Portraits"],
+    "price": "$150M",
+    "lore": "A golden masterpiece symbolising intimacy and ornamentation."
+  },
+  {
+    "id": 12,
+    "title": "Guernica",
+    "artist": "Pablo Picasso",
+    "image": "https://smarthistory.org/wp-content/uploads/2015/08/PicassoGuernica-1536x686.jpg",
+    "badge": "Cubism",
+    "mood": ["Abstract"],
+    "price": "$200M",
+    "lore": "Picasso’s protest against the horrors of war in striking monochrome."
+  }
+]

@@ -1,17 +1,35 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Background from "../components/Background.jsx";
+import { fetchArtworks } from "../store/artworksSlice.js";
 
 export default function Stories() {
-  const artworks = useSelector((state) => state.artworks.items);
+  const dispatch = useDispatch();
+  const { items, status } = useSelector((state) => state.artworks);
 
-  const snippets = artworks.map((a) => ({
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchArtworks());
+    }
+  }, [status, dispatch]);
+
+  if (status === "loading" && items.length === 0) {
+    return (
+      <Background>
+        <p className="text-center mt-20 text-smoke text-lg">
+          Loading stories…
+        </p>
+      </Background>
+    );
+  }
+
+  const snippets = items.map((a) => ({
     id: a.id,
     image: a.image,
     title: a.title,
     text:
       a.lore +
-      " Each artwork is part of a wider creative journey expressed through color, form and emotion."
+      " Each artwork is part of a wider creative journey expressed through colour, form and emotion."
   }));
 
   return (

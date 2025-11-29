@@ -1,8 +1,12 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Background from "../components/Background.jsx";
 import ArtworkCard from "../components/ArtworkCard.jsx";
-import { setFilter, selectArtwork } from "../store/artworksSlice.js";
+import {
+  setFilter,
+  selectArtwork,
+  fetchArtworks
+} from "../store/artworksSlice.js";
 
 const CATEGORIES = [
   "All",
@@ -11,28 +15,23 @@ const CATEGORIES = [
   "Abstract",
   "Digital",
   "Modern",
-  "Minimal"
+  "Minimal",
+  "Classic"
 ];
 
 export default function Gallery() {
   const dispatch = useDispatch();
 
-  // SAFE SELECTORS (prevents undefined crash)
-  const artworksState = useSelector((state) => state.artworks || {});
-  const items = artworksState.items || [];
-  const filter = artworksState.filter || "All";
-  const selectedId = artworksState.selectedId || null;
+  const { items, filter, selectedId, status, error } = useSelector(
+    (state) => state.artworks
+  );
 
-  // PREVENT render before items load
-  if (!Array.isArray(items) || items.length === 0) {
-    return (
-      <Background>
-        <p className="text-center mt-20 text-smoke text-lg">
-          Loading artworks...
-        </p>
-      </Background>
-    );
-  }
+  // 🔹 Load from "API" on first mount
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchArtworks());
+    }
+  }, [status, dispatch]);
 
   const selected = items.find((a) => a.id === selectedId) || null;
 
@@ -46,7 +45,7 @@ export default function Gallery() {
 
   return (
     <Background>
-      <header className="mb-4 flex items-center justify-between">
+      <header className="mb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold">Curated Art Collection</h1>
           <p className="text-smoke">
@@ -69,6 +68,17 @@ export default function Gallery() {
         </div>
       </header>
 
+      {status === "loading" && (
+        <p className="text-center text-smoke text-lg mt-10">
+          Loading artworks…
+        </p>
+      )}
+      {status === "failed" && (
+        <p className="text-center text-red-400 mt-10">
+          Error: {error || "Could not load artworks."}
+        </p>
+      )}
+
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((art) => (
           <ArtworkCard
@@ -78,6 +88,12 @@ export default function Gallery() {
           />
         ))}
       </div>
+
+      {status === "succeeded" && filtered.length === 0 && (
+        <p className="text-sm text-smoke mt-5">
+          No artworks match this category.
+        </p>
+      )}
 
       {selected && (
         <div className="fixed inset-0 z-50 grid place-items-center p-4">
